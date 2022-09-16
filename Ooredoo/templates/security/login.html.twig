@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+{% block body %}
+{% block css %}
+
+
+    <link href="{{ asset('css/form1.css') }}" rel="stylesheet">
+    <link href="{{ asset('back-office/vendor/unicons-2.0.1/css/unicons.css') }}" rel='stylesheet'>
+{% endblock %}
+    <header>
+        <div>
+            <a href="{{path('home')}}"><img src="{{ asset('front-office/assets/img/logo/logo.png') }}" alt="Symfony!"style="max-width:10%;
+height: auto; margin: 20px "></a>
+        </div>
+    </header>
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+
+    <div class="segment">
+        <h1 >Please sign in</h1>
+    </div>
+    <label for="inputUsername">Username</label>
+    <label> <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" placeholder="Username" required autofocus></label>
+    <label for="inputPassword">Password</label>
+    <label> <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" autocomplete="current-password" required></label>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html#}
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+
+
+    <button class="red" type="submit"><i class='uil uil-lock-alt menu--icon'></i>
+        Sign in
+    </button>
+<div style="margin-top: 20px;  text-align: center;">
+    <a href="{{asset('register')}}" >I don't have an account</a> </div>
+</form>
+{% endblock %}

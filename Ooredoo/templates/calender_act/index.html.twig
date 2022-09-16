@@ -1,0 +1,68 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Hello CalenderController!{% endblock %}
+
+
+
+{% block bodyx %}
+
+    <div class="wrapper">
+        <div class="sa4d25">
+            <div class="container">
+                {% block stylesheets %}
+                    <style>
+                        #calendrier{
+                            width: 80%;
+                            margin: auto;
+                        }
+                    </style>
+                    <link href="{{ asset('css/Calender.css') }}" rel="stylesheet">
+                {% endblock %}
+                <div style="margin: 20px 0px 20px 120px; ">
+               <span style="margin-right: 50px">
+                <a  href="{{path('app_activity_index')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center; margin:auto; font-size: 16px; width: 150px;height: auto;text-align: center;padding: 6px !important;"><i class='uil uil-list-ul menu--icon' ></i>Activities List</a>
+                </span>
+                    <span style="margin-right: 50px">
+                   <a  href="{{path('app_activity_new')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center;margin:auto;  font-size: 16px; width: 150px ;height: auto;text-align: center;padding: 6px !important;"><i class='uil uil-plus-circle menu--icon'></i>Add</a>
+                   </span>
+                </div>
+                <div id="calendrier">
+
+                </div>
+
+                {% block javascripts %}
+
+                    <script>
+                        window.onload = () => {
+                            let calendarElt = document.querySelector("#calendrier")
+
+                            let calendar = new FullCalendar.Calendar(calendarElt, {
+                                initialView: 'dayGridMonth',
+                                locale: 'en',
+                                timeZone: 'Europe/Paris',
+                                headerToolbar: {
+                                    start: 'prev,next today',
+                                    center: 'title',
+                                    end: 'dayGridMonth,timeGridWeek'
+                                },
+                                events: {{ data|raw }},
+                                editable: true,
+                                eventResizableFromStart: true
+
+                            })
+
+
+
+                            calendar.render()
+                        }
+                    </script>
+                {% endblock %}
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

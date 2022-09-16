@@ -1,0 +1,100 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Todolist index{% endblock %}
+
+{% block bodyx %}
+    <div class="wrapper">
+        <div class="sa4d25">
+            <div class="container" style="margin-left: 5%">
+                {% block cssx %}
+                <link href="{{ asset('css/table.css') }}" rel="stylesheet">
+                {% endblock %}<!-- css endblock -->
+                <div class="diva">
+                    <div class="segment" >
+                        <h1  style="font-size: 40px">Cases List</h1>
+
+                    </div>
+                </div>
+                <div style="margin: 20px auto 20px auto; display: inline-flex!important; justify-content: center; align-items: center;">
+               <span style="margin-right: 50px">
+                <a  href="{{path('app_calender_cases')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center; margin:auto; width: 120px;height: auto;text-align: center;padding: 6px !important;"><i class='uil uil-calendar-alt menu--icon' ></i>Calender</a>
+                </span>
+                    <span style="margin-right: 50px">
+                   <a  href="{{path('app_cases_new')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center;margin:auto; width: 120px ;height: unset !important;text-align: center;padding: 6px !important;"><i class='uil uil-plus-circle menu--icon'></i>Add</a>
+                   </span>
+                    <span style="margin-left: 522px">
+                   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search ..." title="Type in a name" style=" font-size: 13px !important;font-family: sans-serif;font-weight: 100!important;margin: unset !important;width: 300px">
+             </span>
+                </div>
+                <script>
+                    function myFunction() {
+                        var input, filter, table, tr, td, i, txtValue;
+                        input = document.getElementById("myInput");
+                        filter = input.value.toUpperCase();
+                        table = document.getElementById("myTable");
+                        tr = table.getElementsByTagName("tr");
+                        for (i = 0; i < tr.length; i++) {
+
+                            td = tr[i].getElementsByTagName("td");
+
+                            if(td.length > 0){ // to avoid th
+
+                                if (td[0].innerHTML.toUpperCase().indexOf(filter) > -1 || td[1].innerHTML.toUpperCase().indexOf(filter) > -1
+                                    || td[2].innerHTML.toUpperCase().indexOf(filter) > -1 || td[3].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                } else {
+                                    tr[i].style.display = "none";
+                                }
+
+                            }
+
+                        }
+                    }
+                </script>
+                <table class="table" id="myTable">
+                    <thead>
+                    <tr>
+                        <th style="width: 100px;">CaseId</th>
+                        <th style="width: 300px;">Title</th>
+                        <th style="width: 100px;">Node</th>
+                        <th style="width: 100px;">Severity</th>
+                        <th style="width: 80px;">Status</th>
+                        <th style="width: 100px;">Opened</th>
+                        <th style="width: 100px;">Closed</th>
+                        <th style="width: 100px;">View</th>
+                        <th style="width: 100px;">actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for case in cases %}
+                        <tr>
+                            <td>{{ case.CaseId }}</td>
+                            <td>{{ case.Title }}</td>
+                            <td>{{ case.Node }}</td>
+                            <td>{{ case.Severity }}</td>
+                            <td>{{ case.Status ? 'Open' : 'Closed' }}</td>
+                            <td>{{ case.start ? case.start|date('Y-m-d') : '' }}</td>
+                            <td>{{ case.end ? case.end|date('Y-m-d') : '' }}</td>
+                            <td>
+                                <a href="{{ path('app_cases_show', {'CaseId': case.CaseId}) }}" style="display: inline-flex; justify-content: center; align-items: center;text-align: center;font-size: 13px !important;"><i class='uil uil-eye menu--icon' ></i>show</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('app_cases_edit', {'CaseId': case.CaseId}) }}" style="display: inline-flex; justify-content: center; align-items: center;text-align: center;font-size: 13px !important;"><i class='uil uil-edit-alt menu--icon' ></i>edit</a>
+                                <a href="{{ path('app_cases_delete', {'CaseId': case.CaseId}) }}" style="display: inline-flex; justify-content: center; align-items: center;text-align: center;font-size: 13px !important;"><i class='uil uil-trash menu--icon' ></i>delete</a>
+                            </td>
+
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="9">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    {{ knp_pagination_render(cases) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

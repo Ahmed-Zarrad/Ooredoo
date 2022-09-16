@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% block css %}
+
+
+        <link href="{{ asset('css/form1.css') }}" rel="stylesheet">
+        <link href="{{ asset('back-office/vendor/unicons-2.0.1/css/unicons.css') }}" rel='stylesheet'>
+    {% endblock %}
+    <header>
+        <div>
+            <a href="{{path('home')}}"><img src="{{ asset('front-office/assets/img/logo/logo.png') }}" alt="Symfony!" style="max-width:10%;
+height: auto; margin: 20px "></a>
+        </div>
+    </header>
+
+        <div class="segment">
+            <h1>Register</h1></div>
+
+        {{ form_start(registrationForm) }}
+    <label>
+        {{ form_row(registrationForm.email) }}</label>
+        <label>
+            {{ form_row(registrationForm.username) }}</label>
+    <label>
+        {{ form_row(registrationForm.lastname) }}</label>
+    <label>
+        {{ form_row(registrationForm.phoneNumber) }}</label>
+
+    <label>
+            {{ form_row(registrationForm.plainPassword, {label: 'password'}) }}</label>
+    <label>
+        {{ form_row(registrationForm.plainPassword, {label: 'confirm password'}) }}</label>
+<label>
+    {{ form_row(registrationForm.isVerified) }}</label>
+
+<label>
+        <div class="form-check">
+            {{ form_row(registrationForm.agreeTerms) }}
+            <label class="form-check-label ml-3" >
+
+            </label>
+        </div>
+
+        <button type="submit" class="red">Register</button>
+        {{ form_end(registrationForm) }}
+        <div style="margin-top: 20px;  text-align: center;">
+            <a href="{{asset('login')}}" >I already have an account</a> </div>
+
+{% endblock %}

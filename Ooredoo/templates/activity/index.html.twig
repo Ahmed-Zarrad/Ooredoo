@@ -1,0 +1,92 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Activity index{% endblock %}
+
+{% block bodyx %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+            {% block cssx %}
+            <link href="{{ asset('css/table.css') }}" rel="stylesheet">
+            {% endblock %}<!-- css endblock -->
+            <div class="diva">
+                <div class="segment" >
+                    <h1  style="font-size: 40px">Activity </h1>
+                </div>
+            </div>
+            <div style="margin: 20px auto 20px auto; display: inline-flex!important; justify-content: center; align-items: center;">
+               <span style="margin-right: 50px">
+                <a  href="{{path('app_calender_act')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center; margin:auto; width: 120px;height: auto;text-align: center;padding: 6px !important;"><i class='uil uil-calendar-alt menu--icon' ></i>Calender</a>
+                </span>
+                <span style="margin-right: 50px">
+                   <a  href="{{path('app_activity_new')}}" class="red" id="forme2sub" style="display: inline-flex; justify-content: center; align-items: center;margin:auto; width: 120px ;height: unset !important;text-align: center;padding: 6px !important;"><i class='uil uil-plus-circle menu--icon'></i>Add</a>
+                   </span>
+                <span style="margin-left: 522px">
+                   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search ..." title="Type in a name"style=" font-size: 13px !important;font-family: sans-serif;font-weight: 100!important;margin: unset !important;width: 300px">
+             </span>
+            </div>
+            <script>
+                function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+
+                        td = tr[i].getElementsByTagName("td");
+
+                        if(td.length > 0){ // to avoid th
+
+                            if (td[0].innerHTML.toUpperCase().indexOf(filter) > -1 || td[1].innerHTML.toUpperCase().indexOf(filter) > -1
+                                || td[2].innerHTML.toUpperCase().indexOf(filter) > -1 || td[3].innerHTML.toUpperCase().indexOf(filter) > -1
+                                || td[4].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+
+                        }
+
+                    }
+                }
+            </script>
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th style="width: 100px;">ChangeId</th>
+                <th style="width: 300px;">Title</th>
+                <th style="width: 100px;">Date</th>
+                <th style="width: 80px;" >Status</th>
+                <th style="width: 100px;" >Owner</th>
+                <th style="width: 100px;">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activity in activities %}
+            <tr>
+                <td>{{ activity.ChangeId }}</td>
+                <td>{{ activity.Title }}</td>
+                <td>{{ activity.Date ? activity.Date|date('Y-m-d') : '' }}</td>
+                <td>{{ activity.Status ? 'OK' : 'NOK' }}</td>
+                <td>{{ activity.Owner }}</td>
+                <td>
+
+                    <a href="{{ path('app_activity_edit', {'ChangeId': activity.ChangeId}) }}" style="display: inline-flex; justify-content: center; align-items: center;text-align: center;"><i class='uil uil-edit-alt menu--icon' ></i>edit</a>
+                    <a href="{{ path('app_activity_delete', {'ChangeId': activity.ChangeId}) }}" style="display: inline-flex; justify-content: center; align-items: center;text-align: center;"><i class='uil uil-trash menu--icon' ></i>delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+            <div class="pagination">
+                {{ knp_pagination_render(activities) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

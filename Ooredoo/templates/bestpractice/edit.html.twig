@@ -1,0 +1,24 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Edit Bestpractice{% endblock %}
+
+{% block bodyx %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+            {% block cssx %}
+            <link href="{{ asset('css/form2.css') }}" rel="stylesheet">
+            {% endblock %}<!-- css endblock -->
+            <div class="segment">
+    <h1>Edit Bestpractice</h1>
+            </div>
+
+    {{ include('bestpractice/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_bestpractice_index') }}">back to list</a>
+
+    {{ include('bestpractice/_delete_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}

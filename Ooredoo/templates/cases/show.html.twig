@@ -1,0 +1,58 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}Todolist{% endblock %}
+
+{% block bodyx %}
+    <div class="wrapper">
+        <div class="sa4d25">
+            <div class="container" style="margin-left: 5%">
+                {% block cssx %}
+            <link href="{{ asset('css/form2.css') }}" rel="stylesheet">
+                {% endblock %}<!-- css endblock -->
+                <div class="segment">
+                    <h1>Cases</h1>
+                </div>
+
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Case</th>
+                        <td>{{ case.CaseId }}</td>
+                    </tr>
+                    <tr>
+                        <th>Title</th>
+                        <td>{{ case.Title }}</td>
+                    </tr>
+                    <tr>
+                        <th>Node</th>
+                        <td>{{ case.Node }}</td>
+                    </tr>
+                    <tr>
+                        <th>Severity</th>
+                        <td>{{ case.Severity }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>{{ case.Status ? 'Yes' : 'No' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Opened</th>
+                        <td>{{ case.start ? case.start|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Closed</th>
+                        <td>{{ case.end ? case.end|date('Y-m-d') : '' }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <a href="{{ path('app_cases_index') }}">back to list</a>
+
+                <a href="{{ path('app_cases_edit', {'CaseId': case.CaseId}) }}">edit</a>
+
+                {{ include('cases/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

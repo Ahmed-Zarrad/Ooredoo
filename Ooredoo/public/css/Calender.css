@@ -1,0 +1,26 @@
+
+table {
+    width: auto;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th,
+td {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2) ;
+    color: black;
+}
+th {
+    text-align: left;
+}
+thead th {
+    background-color: rgba(237, 28, 36,1);
+    color: white;
+}
+td:hover {
+    background-color: rgba(237, 28, 36, 0.3);
+}
+tbody td {
+    position: relative;
+}

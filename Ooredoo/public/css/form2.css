@@ -1,0 +1,133 @@
+h1{
+    padding: 32px 0;
+    text-align: center;
+    color: #babecc;
+    text-shadow: 1px 1px 1px #fff;
+}
+label{
+
+
+}
+form{
+
+    width: 40%;
+    margin: 0 auto;
+
+
+
+   }
+
+
+
+
+#forme2sub {
+    color: #61677c;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    margin: 30px auto auto  auto;
+
+}
+#myInput {
+    color: #61677c;
+
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+}
+
+#forme2sub:hover {
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+}
+#forme2sub:active {
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+}
+button .icon {
+    margin-right: 8px;
+}
+button.unit {
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 13px;
+}
+button.unit .icon {
+    margin-right: 0;
+}
+#forme2sub.red {
+    display: block;
+    width: 20%;
+    color: #ae1100;
+}
+input[type=checkbox] {
+
+    background-color: #ebecf0;
+    box-shadow: inset 1px 1px 2px #babecc, inset -1px -1px 2px #fff;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+}
+body,
+p,
+select,input[type=text] ,input[type=password],input[type=date],input[type=number],input[type=email],input[type=color]
+select,
+textarea
+{
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 13px;
+
+}
+#forme2sub  {
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 13px;
+
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;}
+
+select,input[type=text] ,input[type=password],input[type=date],input[type=number],input[type=email] {
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+
+
+}
+input[type=color]{
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+    border-radius: 320px;
+    padding: 5px;
+    background-color: #ebecf0;
+    text-shadow: 1px 1px 0 #fff;
+    box-shadow: inset 2px 2px 5px #babecc, inset -5px -5px 10px #fff;
+
+}
+select,input,label{
+    width: 50%;
+    margin: 20px 0 5px  auto;
+
+}
+.line{
+
+}
+

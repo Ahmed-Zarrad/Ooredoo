@@ -1,0 +1,24 @@
+{% extends 'dashboard/index.html.twig' %}
+
+{% block title %}New Todolist{% endblock %}
+
+{% block bodyx %}
+<div class="wrapper">
+    <div class="sa4d25">
+        <div class="container" style="margin-left: 5%">
+            {% block cssx %}
+            <link href="{{ asset('css/form2.css') }}" rel="stylesheet">
+            {% endblock %}<!-- css endblock -->
+            <div class="diva">
+                <div class="segment" >
+    <h1>Create new To Do</h1>
+                </div>
+    {{ include('todolist/_form.html.twig') }}
+
+    <a href="{{ path('app_todolist_index') }}">back to list</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
