@@ -12,7 +12,7 @@ class Cases
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
      */
 
     private $CaseId;
@@ -63,12 +63,12 @@ class Cases
      */
     private $text_color;
 
-    public function getCaseId(): ?int
+    public function getCaseId(): ?string
     {
         return $this->CaseId;
     }
 
-    public function setCaseId(int $CaseId): self
+    public function setCaseId(string $CaseId): self
     {
         $this->CaseId = $CaseId;
 

@@ -4,6 +4,11 @@ namespace App\Form;
 
 use App\Entity\Cases;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -18,7 +23,15 @@ class CasesType extends AbstractType
             ->add('Title')
             ->add('Node')
             ->add('Severity')
-            ->add('Status')
+           ->add('Status', ChoiceType::class, [
+               'required' => true,
+               'multiple' => false,
+               'expanded' => false,
+               'choices' => [
+                   'Open' => '1',
+                   'Closed' => '0',
+               ],
+           ])
             ->add('start', DateType::class, [
                 'widget' => 'single_text'
             ])
@@ -29,6 +42,15 @@ class CasesType extends AbstractType
             ->add('border_color', ColorType::class)
             ->add('text_color', ColorType::class)
         ;
+         $builder->get('Status')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($Status) {
+                    return (string) $Status;
+                },
+                function ($Status) {
+                    return (bool) $Status;
+                }
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CBestpractice%2523getNode
+
+return [PHP_INT_MAX, []];
