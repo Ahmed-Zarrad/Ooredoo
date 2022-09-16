@@ -5815,7 +5815,7 @@
       <change afterPath="$PROJECT_DIR$/var/cache/dev/profiler/f0/1d/7e1df0" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/var/cache/dev/profiler/f0/2e/422ef0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20220915191217.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20220915191217.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20220916060207.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Cases.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cases.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ActivityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ActivityType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/CasesType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CasesType.php" afterDir="false" />
@@ -6043,7 +6043,7 @@
       <workItem from="1663153051818" duration="1149000" />
       <workItem from="1663166022521" duration="51632000" />
       <workItem from="1663295432944" duration="36000" />
-      <workItem from="1663300170190" duration="9082000" />
+      <workItem from="1663300170190" duration="9166000" />
     </task>
     <servers />
   </component>
