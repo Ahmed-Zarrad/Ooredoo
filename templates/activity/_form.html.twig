@@ -1,6 +1,9 @@
+{% block cssx %}
+<link href="{{ asset('css/form2.css') }}" rel="stylesheet">
+{% endblock %}<!-- css endblock -->
 {{ form_start(form) }}
-<label>
+
     {{ form_widget(form) }}
-</label>
+
     <button class="red" id="forme2sub">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
